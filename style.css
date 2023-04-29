@@ -1,0 +1,31 @@
+body{
+    background-color: rgba(128, 129, 129, 0.75);
+    color: white;
+}
+header{
+    color: black;
+    font-size: xx-large;
+    font-family: Amiri;
+    text-align: center;
+    background-color: midnightblue;
+}
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+}
+
+}
