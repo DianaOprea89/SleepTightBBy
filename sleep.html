@@ -25,11 +25,11 @@
     </div>
     <div class="row m-5">
         <p class="col text-start"> Start Time : </p>
-        <p class="col text-end" @click="startTimer" v-if="timerStarted"> {{currentTimer}}</p>
+        <p class="col text-end" @click="startTimer" v-if="timerStarted"> {{currentTime}}</p>
     </div>
     <div class="row m-5">
         <p class="col text-start"> End Time : </p>
-        <p class="col text-end"> Set Time</p>
+        <p class="col text-end" @click="stopTimer"  v-if="!timerStarted">{{currentTimer}}</p>
     </div>
     <div>
         <div class="row text-center m-5">
@@ -38,7 +38,7 @@
             </div>
             <div>
 
-                <button @click="startTimer">Start</button>
+                <button @click="startTimer" id="button" v-if="!this.isHidden">Start</button>
                 <button @click="stopTimer">Stop</button>
             </div>
 
@@ -47,10 +47,9 @@
 
     </div>
 </div>
-<script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue@2"></script>
 
-<script src="app1.js"></script>
+<script src="sleep.js"></script>
 
 <link rel="stylesheet" href="style.css">
 </body>
