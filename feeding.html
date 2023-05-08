@@ -29,27 +29,39 @@
     </div>
     <div class="row m-5">
         <p class="col text-start"> Start Time : </p>
-        <p class="col text-end"  @click="startTimer" v-if="timerStarted"> {{currentTime}}</p>
+        <p class="col text-end" @click="startTimer" v-if="timerStarted"> {{currentTime}}</p>
     </div>
     <div class="row m-5">
         <p class="col text-start"> End Time : </p>
-        <p class="col text-end" @click="stopTimer"  v-if="!timerStarted"> {{currentTimer}} </p>
+        <p class="col text-end" @click="stopTimer" v-if="!timerStarted"> {{currentTimer}} </p>
+    </div>
+    <div class="row m-5">
+        <p class="col text-center">Type:
+        <ul>
+            <li v-for="item in foodsEaten"  >{{item}} </li>
+        </ul>
+        </p>
+        <button @click="addFood" class="col-1 btn btn-outline-dark"> Add</button>
     </div>
     <div>
         <div class="row text-center m-5">
             <div>
-               <div class="col">
-                   <span>{{ minutes }}:</span><span>{{ seconds < 10 ? '0' + seconds : seconds }}</span></div>
+                <div class="col">
+                    <span>{{ minutes }}:</span><span>{{ seconds < 10 ? '0' + seconds : seconds }}</span></div>
                 <div class="col text-center">
                     <button @click="startTimer" class="btn btn-light m-2"> Left
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-patch-plus" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
                             <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
                         </svg>
-                    </svg></button>
+                        </svg></button>
                     <button @click="startTimer" class="btn btn-light m-2"> Right
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-patch-plus" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
                             <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
                         </svg>
                     </button>
@@ -70,22 +82,23 @@
     </div>
     <div class="row m-5">
         <p class="col text-start"> Start Time : </p>
-        <p class="col text-end"  @keyup.enter="handleEnterKey" v-if="timerStarted"> {{currentTimer}}</p>
+        <p class="col text-end" @keyup.enter="handleEnterKey" v-if="timerStarted"> {{currentTimer}}</p>
     </div>
     <div class="row m-5">
-        <p class="col" >Milk type : {{typeMilk}}</p>
-        <p class="col" >Amount: {{amount}} ml</p>
+        <p class="col">Milk type : {{typeMilk}}</p>
+        <p class="col">Amount: {{amount}} ml</p>
     </div>
 
     <div class="row m-5">
         <p class="col text-start"> Type : </p>
-        <select class="form-select col text-center" aria-label="Default select example" v-model="typeMilk" >
+
+        <select class="form-select col text-center" aria-label="Default select example" v-model="typeMilk">
             <option selected>Breast Milk</option>
-            <option >Formula</option>
-            <option >Cow Milk</option>
-            <option >Goat Milk</option>
-            <option >Soy Milk</option>
-            <option >Other</option>
+            <option>Formula</option>
+            <option>Cow Milk</option>
+            <option>Goat Milk</option>
+            <option>Soy Milk</option>
+            <option>Other</option>
         </select>
     </div>
     <div>
@@ -93,7 +106,7 @@
             <p class="col-9 text-start"> Amount </p>
             <input type="number" id="myNumberInput" name="myNumberInput" class="col-1" v-model="amount">
             <p class="col-1">ml</p>
-            <button @click="startTimer" class="col-1 btn btn-outline-dark"> Add</button>
+
         </div>
         <div class="row mx-5">
             <div class="row">
@@ -102,7 +115,8 @@
             </div>
             <div>
                 <form action="" class="range-field w-100 row">
-                    <input id="text1" name="text1" type="range" class="custom-range" min="0" max="350" style="width: 100%" v-model.lazy="amount">
+                    <input id="text1" name="text1" type="range" class="custom-range" min="0" max="350"
+                           style="width: 100%" v-model.lazy="amount">
                 </form>
             </div>
         </div>
