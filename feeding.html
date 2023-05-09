@@ -35,14 +35,7 @@
         <p class="col text-start"> End Time : </p>
         <p class="col text-end" @click="stopTimer" v-if="!timerStarted"> {{currentTimer}} </p>
     </div>
-    <div class="row m-5">
-        <p class="col text-center">Type:
-        <ul>
-            <li v-for="item in foodsEaten"  >{{item}} </li>
-        </ul>
-        </p>
-        <button @click="addFood" class="col-1 btn btn-outline-dark"> Add</button>
-    </div>
+
     <div>
         <div class="row text-center m-5">
             <div>
@@ -81,54 +74,52 @@
         <p class="col text-center border border-dark"> Bottle </p>
     </div>
     <div class="row m-5">
-        <p class="col text-start"> Start Time : </p>
-        <p class="col text-end" @keyup.enter="handleEnterKey" v-if="timerStarted"> {{currentTimer}}</p>
+        <p class="col text-center">Type:
+        <ul>
+            <li v-for="item in foodsEaten">{{item}}</li>
+        </ul>
+        </p>
+        <button @click="addFood" class="col-1 btn btn-outline-dark"> Add</button>
     </div>
     <div class="row m-5">
         <p class="col">Milk type : {{typeMilk}}</p>
         <p class="col">Amount: {{amount}} ml</p>
     </div>
 
-    <div class="row m-5">
-        <p class="col text-start"> Type : </p>
-
-        <select class="form-select col text-center" aria-label="Default select example" v-model="typeMilk">
-            <option selected>Breast Milk</option>
-            <option>Formula</option>
-            <option>Cow Milk</option>
-            <option>Goat Milk</option>
-            <option>Soy Milk</option>
-            <option>Other</option>
-        </select>
-    </div>
-    <div>
-        <div class="row mx-5">
-            <p class="col-9 text-start"> Amount </p>
-            <input type="number" id="myNumberInput" name="myNumberInput" class="col-1" v-model="amount">
-            <p class="col-1">ml</p>
-
+    <div class="row ">
+        <p class="col-1 text-start"> Type : </p>
+        <div class="col-4">
+            <select class="form-select " aria-label="Default select example" v-model="typeMilk">
+                <option selected>Breast Milk</option>
+                <option>Formula</option>
+                <option>Cow Milk</option>
+                <option>Goat Milk</option>
+                <option>Soy Milk</option>
+                <option>Other</option>
+            </select>
         </div>
-        <div class="row mx-5">
-            <div class="row">
-                <span class="font-weight-bold mr-2  text-start col">0</span>
-                <span class="font-weight-bold indigo-text ml-2 text-end col">350</span>
-            </div>
-            <div>
-                <form action="" class="range-field w-100 row">
-                    <input id="text1" name="text1" type="range" class="custom-range" min="0" max="350"
-                           style="width: 100%" v-model.lazy="amount">
-                </form>
-            </div>
+        <div class="col-5">
+             Amount: <input type="number" id="myNumberInput" name="myNumberInput" v-model="amount"> ml
+        </div>
+    </div>
+    <div class="row mx-5">
+        <div class="row">
+            <span class="font-weight-bold mr-2  text-start col">0</span>
+            <span class="font-weight-bold indigo-text ml-2 text-end col">350</span>
+        </div>
+        <div>
+            <form action="" class="range-field w-100 row">
+                <input id="text1" name="text1" type="range" class="custom-range" min="0" max="350"
+                       style="width: 100%" v-model.lazy="amount">
+            </form>
         </div>
     </div>
 </div>
 
 
+
 <script src="https://unpkg.com/vue@2"></script>
 <script src="feeding.js"></script>
-
-
-</script>
 <link rel="stylesheet" href="style.css">
 </body>
 </html>

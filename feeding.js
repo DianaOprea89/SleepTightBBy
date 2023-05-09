@@ -1,3 +1,6 @@
+
+
+
 new Vue({
     el: "#app2",
     data: {
@@ -21,6 +24,8 @@ new Vue({
                 this.time++;
             }
         }, 1000);
+
+
 
     },
     computed: {

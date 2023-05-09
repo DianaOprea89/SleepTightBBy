@@ -1,3 +1,5 @@
+
+
 // wrapper component
 Vue.component('plan-picker', {
     template: '#plan-picker-template',
@@ -7,15 +9,29 @@ Vue.component('plan-picker', {
             plans: [
                 {
                     planName: 'sleep',
-                    url: 'sleep.html'
+                    url: 'sleep.html',
+                    image: {
+                        src: './icons/sleep.png',
+                        alt: "sleep"
+                    }
                 },
                 {
                     planName: 'feeding',
-                    url: 'feeding.html'
+                    url: 'feeding.html',
+                    image: {
+                        src: './icons/feeding.png',
+                        alt: "feeding"
+                    }
+
                 },
                 {
                     planName: 'Solids',
-                    url: 'solids.html'
+                    url: 'solids.html',
+                    image: {
+                        src: './icons/solids.png',
+                        alt: "solids",
+                    }
+
                 }
             ]
         }
@@ -29,7 +45,8 @@ Vue.component('plan', {
         plan: {
             type: Object,
             required: true
-        }
+        },
+
     }
 });
 
@@ -41,7 +58,9 @@ new Vue({
     },
     methods:{
 
-    }
+    },
+
+
 
 });
 

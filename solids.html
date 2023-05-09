@@ -77,10 +77,11 @@
             </div>
         </div>
         <div class="m-5">
-            <button v-on:click="showForm()">Not seeing a food?</button>
             <div class="row">
+                <button v-on:click="showForm()"  class="col-2">Not seeing a food?</button>
 
-                <div class="col-11">
+
+                <div class="col-9">
                     <input class="form-control" id="exampleDataList" placeholder="search foods..." v-model="searchQuery" list="names-list">
                     <datalist id="names-list">
                         <option v-for="(name, index) in suggestions" :key="index" :value="name">{{ name }}</option>

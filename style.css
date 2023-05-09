@@ -7,7 +7,7 @@ header{
     font-size: xx-large;
     font-family: Amiri;
     text-align: center;
-    background-color: midnightblue;
+    background-color: rgba(238, 200, 187, 0.94);
 }
 a{
     color: #ffffff;
@@ -28,4 +28,7 @@ a{
     text-align: center;
 }
 
+img {
+    width: 80px;
+    height: 80px;
 }
